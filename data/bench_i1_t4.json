@@ -1,0 +1,48 @@
+{
+  "config": {
+    "chunk_ms": 320,
+    "threads": 4,
+    "int8": true,
+    "provider": "cpu"
+  },
+  "init_ms": 1794.6,
+  "mem_rss_mb": 63.4,
+  "files": [
+    {
+      "audio_sec": 5.61,
+      "rtf": 0.0574,
+      "chunk_avg_ms": 17.9,
+      "chunk_p95_ms": 27.0,
+      "chunk_max_ms": 27.0,
+      "e2e_latency_ms": 347.0,
+      "first_text_ms": 981.2,
+      "realtime_ok": true,
+      "text": "对我做了介绍那么我想说的是大家如果对我的研究感兴趣呢",
+      "file": "0.wav"
+    },
+    {
+      "audio_sec": 5.15,
+      "rtf": 0.0517,
+      "chunk_avg_ms": 15.7,
+      "chunk_p95_ms": 21.2,
+      "chunk_max_ms": 21.2,
+      "e2e_latency_ms": 341.2,
+      "first_text_ms": 977.5,
+      "realtime_ok": true,
+      "text": "重点呢想谈三个问题首先呢就是这一轮全球金融动量的表现",
+      "file": "1.wav"
+    },
+    {
+      "audio_sec": 4.52,
+      "rtf": 0.0527,
+      "chunk_avg_ms": 15.9,
+      "chunk_p95_ms": 22.3,
+      "chunk_max_ms": 22.3,
+      "e2e_latency_ms": 342.3,
+      "first_text_ms": 1617.2,
+      "realtime_ok": true,
+      "text": "分析师这一次全球金融动荡背后的根源",
+      "file": "8k.wav"
+    }
+  ]
+}

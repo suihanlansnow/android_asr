@@ -1,0 +1,15 @@
+﻿{
+  "device": "Huawei MRD-AL00 (Helio P35, Android 9, API 28)",
+  "model": "sherpa-onnx-streaming-zipformer-zh-14M int8",
+  "threads": 2,
+  "chunk_ms": 100,
+  "n_utts": 10,
+  "audio_sec": 29.6,
+  "rtf": 0.477,
+  "chunk_decode_p95_ms": 232,
+  "first_text_p50_ms": 1226,
+  "pss_mb": 115,
+  "model_load_includes_asset_copy": true,
+  "pc_baseline": {"rtf": 0.048, "first_text_p50_ms": 780, "rss_mb": 62},
+  "notes": "10 条 AISHELL-3 官方样本, 实时节奏喂块; 1 条无输出(过短)"
+}

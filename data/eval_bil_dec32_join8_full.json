@@ -1,0 +1,62 @@
+{
+  "config": {
+    "int8": true,
+    "threads": 4,
+    "feed_ms": 40,
+    "enc_int8": null,
+    "dec_int8": 0,
+    "join_int8": 1
+  },
+  "n_utts": 536,
+  "audio_min": 25.1,
+  "cer": 0.0377,
+  "cer_sent_mean": 0.05,
+  "rep_ratio_mean": 0.0124,
+  "rep_utts": 44,
+  "rtf": 0.1248,
+  "rtf_p95": 0.14,
+  "decode_p95_ms": 44.2,
+  "first_text_p50_ms": 806.4,
+  "first_text_p95_ms": 1128.4,
+  "model_size_mb": 189.8,
+  "model_rss_mb": 240.3,
+  "wall_sec": 203.2,
+  "speedup_vs_realtime": 7.4,
+  "worst_samples": [
+    {
+      "utt": "SSB00090030",
+      "ref": "碗碗香",
+      "hyp": "晚晚香"
+    },
+    {
+      "utt": "SSB00090179",
+      "ref": "一",
+      "hyp": ""
+    },
+    {
+      "utt": "SSB00090221",
+      "ref": "二",
+      "hyp": ""
+    },
+    {
+      "utt": "SSB00090355",
+      "ref": "久久家厨",
+      "hyp": "九九家除"
+    },
+    {
+      "utt": "SSB00090359",
+      "ref": "漂浪之女",
+      "hyp": "飘sil浪之女"
+    },
+    {
+      "utt": "SSB17110221",
+      "ref": "恋话",
+      "hyp": "炼化"
+    },
+    {
+      "utt": "SSB17110459",
+      "ref": "恋极星",
+      "hyp": "练习"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+# ===== Python =====
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# ===== 模型与大型二进制（不上传，从 README 链接下载） =====
+models/
+**/*.onnx
+**/*.so
+**/*.tar.bz2
+**/*.tar.gz
+android/deps/
+android/AsrCaptionDemo/app/src/main/jniLibs/
+# 保留 assets/model 下的 tokens.txt / LABEL.txt，仅排除权重
+android/AsrCaptionDemo/app/src/main/assets/model/*.onnx
+
+# ===== 音频数据（不上传） =====
+data/aishell3/
+data/noise0/
+data/noise10/
+data/*.wav
+data/*.rar
+data/*.png
+data/sweep/
+
+# ===== Android 构建产物 =====
+android/**/build/
+android/**/.gradle/
+local.properties
+*.apk
+*.aab
+*.iml
+.idea/
+
+# ===== 杂项 =====
+.vscode/
+*.stamp
+.DS_Store
+Thumbs.db

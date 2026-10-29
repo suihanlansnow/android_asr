@@ -1,0 +1,8 @@
+{
+  "cfg": "bil_mix",
+  "n": 200,
+  "cer": 0.0379,
+  "rtf": 0.1372,
+  "chunk_p95_ms": 48.8,
+  "first_text_p50_ms": 808.4
+}

@@ -1,0 +1,12 @@
+{
+	"default": {
+		"train": {
+			"meta": "aishell1_train.csv",
+			"file": "speech_asr_aishell1_testsets.zip"
+		},
+		"test": {
+			"meta": "aishell1_test.csv",
+			"file": "speech_asr_aishell1_testsets.zip"
+		}
+	}
+}

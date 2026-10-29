@@ -1,0 +1,62 @@
+{
+  "config": {
+    "int8": false,
+    "threads": 2,
+    "feed_ms": 40
+  },
+  "n_utts": 536,
+  "audio_min": 25.1,
+  "cer": 0.1046,
+  "cer_sent_mean": 0.1165,
+  "rtf": 0.0559,
+  "rtf_p95": 0.0716,
+  "decode_p95_ms": 19.6,
+  "first_text_p50_ms": 783.8,
+  "first_text_p95_ms": 1104.3,
+  "model_size_mb": 53.0,
+  "model_rss_mb": 91.0,
+  "wall_sec": 95.9,
+  "speedup_vs_realtime": 15.7,
+  "worst_samples": [
+    {
+      "utt": "SSB00090030",
+      "ref": "碗碗香",
+      "hyp": "晚晚乡"
+    },
+    {
+      "utt": "SSB00090113",
+      "ref": "晨晨粉面店",
+      "hyp": "成成本面店"
+    },
+    {
+      "utt": "SSB00090117",
+      "ref": "丹妮奥芭芭拉",
+      "hyp": "丹尼奥巴巴巴巴拉"
+    },
+    {
+      "utt": "SSB00090179",
+      "ref": "一",
+      "hyp": ""
+    },
+    {
+      "utt": "SSB00090230",
+      "ref": "金星土菜馆",
+      "hyp": "精心吐菜馆"
+    },
+    {
+      "utt": "SSB00090242",
+      "ref": "佬俵汤馆江大路",
+      "hyp": "老表汤管将大陆"
+    },
+    {
+      "utt": "SSB00090247",
+      "ref": "你向她表白",
+      "hyp": "你向他表示表白"
+    },
+    {
+      "utt": "SSB00090294",
+      "ref": "招揽新客源",
+      "hyp": "张老辛客云"
+    }
+  ]
+}

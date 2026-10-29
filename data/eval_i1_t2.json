@@ -1,0 +1,62 @@
+{
+  "config": {
+    "int8": true,
+    "threads": 2,
+    "feed_ms": 40
+  },
+  "n_utts": 536,
+  "audio_min": 25.1,
+  "cer": 0.1367,
+  "cer_sent_mean": 0.1506,
+  "rtf": 0.0476,
+  "rtf_p95": 0.0594,
+  "decode_p95_ms": 16.7,
+  "first_text_p50_ms": 780.3,
+  "first_text_p95_ms": 1100.7,
+  "model_size_mb": 24.1,
+  "model_rss_mb": 61.8,
+  "wall_sec": 83.3,
+  "speedup_vs_realtime": 18.1,
+  "worst_samples": [
+    {
+      "utt": "SSB00090030",
+      "ref": "碗碗香",
+      "hyp": "晚乡"
+    },
+    {
+      "utt": "SSB00090087",
+      "ref": "同济堂育才路",
+      "hyp": "统计糖域财"
+    },
+    {
+      "utt": "SSB00090127",
+      "ref": "搜狐娱乐讯九月三十日",
+      "hyp": "搜娱乐时"
+    },
+    {
+      "utt": "SSB00090179",
+      "ref": "一",
+      "hyp": ""
+    },
+    {
+      "utt": "SSB00090242",
+      "ref": "佬俵汤馆江大路",
+      "hyp": "老表汤管将大陆"
+    },
+    {
+      "utt": "SSB00090257",
+      "ref": "工人加固塌陷外护栏",
+      "hyp": "工人家顾他现外富户兰"
+    },
+    {
+      "utt": "SSB00090265",
+      "ref": "隋唐演义人物有什么",
+      "hyp": "汤演绎人物有声吗"
+    },
+    {
+      "utt": "SSB00090294",
+      "ref": "招揽新客源",
+      "hyp": "张老师心客源"
+    }
+  ]
+}

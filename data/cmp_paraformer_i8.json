@@ -1,0 +1,8 @@
+{
+  "cfg": "paraformer_i8",
+  "n": 200,
+  "cer": 0.1127,
+  "rtf": 0.3173,
+  "chunk_p95_ms": 198.0,
+  "first_text_p50_ms": 865.6
+}

@@ -1,0 +1,40 @@
+{
+  "device": "Huawei MRD-AL00 / MT6765 (4x A53 2.3G + 4x A53 1.8G), Android 9",
+  "bench_set": "10 条 AISHELL-3 官方样本, 实时节奏喂块, 100ms 块",
+  "configs": [
+    {"model": "zipformer-zh-14M int8 (24MB)", "threads": 2, "rtf": 0.477, "chunk_p95_ms": 232, "first_text_p50_ms": 1226, "pss_mb": 115},
+    {"model": "zipformer-zh-14M int8 (24MB)", "threads": 4, "rtf": 0.313, "chunk_p95_ms": 140, "first_text_p50_ms": 1154, "pss_mb": 89},
+    {"model": "zipformer-bilingual zh-en, enc int8 + dec/joiner fp32 (199MB)", "threads": 4, "rtf": 0.814, "chunk_p95_ms": 320, "first_text_p50_ms": 1255, "pss_mb": 308},
+    {"model": "zipformer-bilingual zh-en, enc int8 + dec/joiner fp32 (199MB)", "threads": 6, "rtf": 1.231, "chunk_p95_ms": 546, "first_text_p50_ms": 1637, "pss_mb": 299},
+    {"model": "zipformer-bilingual zh-en, enc int8 + dec/joiner fp32 (199MB)", "threads": 4, "chunk_ms": 60, "rtf": 0.755, "chunk_p95_ms": 261, "first_text_p50_ms": 1234, "pss_mb": 293},
+    {"model": "bilingual_mix 内嵌 assets (enc/join int8 + dec fp32) + abiFilters arm64-v8a/armeabi-v7a (APK 250.2MB)", "threads": 4, "rtf": 0.643, "chunk_p95_ms": 300, "first_text_p50_ms": 964, "pss_mb": 282}
+  ],
+  "on_device_cer_10clips": {"zh14m_int8": 0.2687, "bilingual_mix": 0.1194},
+  "pc_accuracy_200utts_aishell3": {
+    "zh14m_int8":        {"clean": 0.1236, "babble_10db": 0.1704, "babble_0db": 0.6831},
+    "paraformer_i8":     {"clean": 0.1127, "rtf": 0.3173},
+    "bilingual_mix":     {"clean": 0.0379, "babble_10db": 0.0468, "babble_0db": 0.5262}
+  },
+  "applied_optimizations": [
+    "numThreads 2 -> 4 (RTF -34%, p95 232->140ms); 6 线程因大小核争抢反而退化",
+    "字幕刷新节流: partial 每 2 块、仪表盘每 5 块, 避免每 100ms 构造 Spannable 造成 GC 抖动",
+    "端点终止静音 1.4s -> 0.6s, 定稿更快",
+    "AudioRecord 缓冲按 chunk*4*4 字节配置, 减少欠载",
+    "支持从 /sdcard/Android/data/<pkg>/files/model 加载模型, 免重打包做 A/B",
+    "基准结果写入 bench_result.json, 便于批量对比",
+    "模型内嵌 assets/model 并在首启解包到 filesDir(带 .stamp 版本戳), abiFilters 只留 arm64-v8a/armeabi-v7a: APK 250.2MB(裁掉 x86+x86_64 共 69.2MB), 内嵌后 RTF/首字与外部加载一致"
+  ],
+  "accuracy_root_cause": "14M 模型容量不足, 错误集中在同音字替换; 全 int8 双语模型会退化成重复循环, 故用 encoder int8 + decoder/joiner fp32 的混合精度",
+  "quantization_isolation_test": {
+    "note": "bilingual zipformer, 536 条 AISHELL-3, 逐组件量化 A/B, 以 rep_ratio(连续重复字符占比) 直接度量重复循环",
+    "component_sizes_mb": {"enc_fp32": 314.8, "enc_int8": 173.5, "dec_fp32": 13.2, "dec_int8": 12.5, "join_fp32": 12.2, "join_int8": 3.1},
+    "configs": [
+      {"enc": "int8", "dec": "int8", "join": "int8", "cer": 0.2534, "rep_ratio_mean": null, "rep_utts": null, "note": "历史全 int8 结果, 重复循环严重"},
+      {"enc": "int8", "dec": "int8", "join": "fp32", "cer": 0.2419, "rep_ratio_mean": 0.1172, "rep_utts": "324/536", "note": "仅 decoder int8 → CER 24.2%, 60% 句子重复循环(如 漂亮漂亮亮主妇妇)"},
+      {"enc": "int8", "dec": "fp32", "join": "int8", "cer": 0.0377, "rep_ratio_mean": 0.0124, "rep_utts": "44/536", "note": "仅 joiner int8 → CER 3.77%, 无重复循环, 体积 189.8MB(省 9.1MB)"},
+      {"enc": "int8", "dec": "fp32", "join": "fp32", "cer": 0.0379, "rep_ratio_mean": null, "rep_utts": null, "note": "当前内嵌混合精度, 体积 198.9MB"}
+    ],
+    "conclusion": "重复循环的根因是 decoder int8(量化误差破坏自回归状态)。decoder fp32→int8 仅省 0.7MB 却使 CER 从 3.8% 升至 24%; joiner fp32→int8 省 9.1MB 且 CER 不变。可安全地把 joiner 换为 int8, decoder 必须保持 fp32。"
+  },
+  "remaining_risk": "0dB 强人声干扰下两个模型都崩(CER>50%), 需前置降噪(如 GTCRN)才能覆盖餐厅/多人场景"
+}

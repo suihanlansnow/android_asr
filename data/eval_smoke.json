@@ -1,0 +1,21 @@
+{
+  "config": {
+    "int8": true,
+    "threads": 2,
+    "feed_ms": 40
+  },
+  "n_utts": 20,
+  "audio_min": 0.8,
+  "cer": 0.0889,
+  "cer_sent_mean": 0.0815,
+  "rtf": 0.0496,
+  "rtf_p95": 0.0637,
+  "decode_p95_ms": 17.6,
+  "first_text_p50_ms": 779.5,
+  "first_text_p95_ms": 1099.4,
+  "model_size_mb": 24.1,
+  "model_rss_mb": 62.2,
+  "wall_sec": 2.9,
+  "speedup_vs_realtime": 17.4,
+  "worst_samples": []
+}

@@ -1,0 +1,48 @@
+{
+  "config": {
+    "chunk_ms": 320,
+    "threads": 2,
+    "int8": false,
+    "provider": "cpu"
+  },
+  "init_ms": 2386.2,
+  "mem_rss_mb": 91.1,
+  "files": [
+    {
+      "audio_sec": 5.61,
+      "rtf": 0.0659,
+      "chunk_avg_ms": 20.5,
+      "chunk_p95_ms": 29.6,
+      "chunk_max_ms": 29.6,
+      "e2e_latency_ms": 349.6,
+      "first_text_ms": 981.6,
+      "realtime_ok": true,
+      "text": "对我做了介绍那么我想说的是大家如果对我的研究感兴趣",
+      "file": "0.wav"
+    },
+    {
+      "audio_sec": 5.15,
+      "rtf": 0.0623,
+      "chunk_avg_ms": 18.9,
+      "chunk_p95_ms": 22.1,
+      "chunk_max_ms": 22.1,
+      "e2e_latency_ms": 342.1,
+      "first_text_ms": 981.3,
+      "realtime_ok": true,
+      "text": "重点呢想谈三个问题首先就是这一轮全球金融动能的表现",
+      "file": "1.wav"
+    },
+    {
+      "audio_sec": 4.52,
+      "rtf": 0.0612,
+      "chunk_avg_ms": 18.5,
+      "chunk_p95_ms": 22.0,
+      "chunk_max_ms": 22.0,
+      "e2e_latency_ms": 342.0,
+      "first_text_ms": 981.1,
+      "realtime_ok": true,
+      "text": "山路的飞机分析这一次全球金融动荡背后的根源",
+      "file": "8k.wav"
+    }
+  ]
+}

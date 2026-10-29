@@ -1,0 +1,32 @@
+{
+  "config": {
+    "int8": true,
+    "threads": 4,
+    "feed_ms": 40,
+    "enc_int8": null,
+    "dec_int8": 0,
+    "join_int8": 1
+  },
+  "n_utts": 50,
+  "audio_min": 2.2,
+  "cer": 0.0418,
+  "cer_sent_mean": 0.0539,
+  "rep_ratio_mean": 0.0196,
+  "rep_utts": 6,
+  "rtf": 0.1242,
+  "rtf_p95": 0.1386,
+  "decode_p95_ms": 43.8,
+  "first_text_p50_ms": 806.8,
+  "first_text_p95_ms": 1126.5,
+  "model_size_mb": 189.8,
+  "model_rss_mb": 238.8,
+  "wall_sec": 17.9,
+  "speedup_vs_realtime": 7.5,
+  "worst_samples": [
+    {
+      "utt": "SSB00090030",
+      "ref": "碗碗香",
+      "hyp": "晚晚香"
+    }
+  ]
+}
